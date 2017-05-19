@@ -1,0 +1,24 @@
+{
+  "name": "patients",
+  "description": "An App to manage patients",
+  "main": "index.js",
+  "authors": [
+    "Delink-D <delinkdesigns@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "patients"
+  ],
+  "homepage": "https://github.com/Delink-D/patients",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
