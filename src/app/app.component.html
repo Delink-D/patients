@@ -4,12 +4,13 @@
 	</div>
 	<hr>
 	<div class="nav-btns">
-		<p class="navBtn">Add Patient</p>
-		<p class="navBtn">View Patients</p>
+		<p class="navBtn" (click) = "newPatient()">Add Patient</p>
+		<p class="navBtn" (click) = "viewP()">View Patients</p>
 	</div>
 	<div class="clearfix"></div>
 	<hr>
-	<form class="add-patients">
+
+	<form class="add-patients" *ngIf = "addPatients">
 		<div class="form-group col-lg-6 col-md-6">
 			<label for="fname">First Name</label>
 			<input type="text" class="form-control" id="fname" name="fname" placeholder="First Name">
@@ -34,4 +35,47 @@
 			<input type="submit" class="btn btn-primary pull-right mybtn" value="Add Patient">
 		</div>
 	</form>
+
+	<table class="table table-striped" id="view-patients" *ngIf = "viewPatients">
+		<thead>
+			<tr>
+				<th>Fname</th>
+				<th>Lname</th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>DOB</th>
+				<th>Update</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Derick</td>
+				<td>Mwangi</td>
+				<td>0702933534</td>
+				<td>delinkdesigns@gmail.com</td>
+				<td>30/09/1992</td>
+				<td><span class="label label-warning">Update</span></td>
+				<td><span class="label label-danger">Delete</span></td>
+			</tr><tr>
+				<td>Derick</td>
+				<td>Mwangi</td>
+				<td>0702933534</td>
+				<td>delinkdesigns@gmail.com</td>
+				<td>30/09/1992</td>
+				<td><span class="label label-warning">Update</span></td>
+				<td><span class="label label-danger">Delete</span></td>
+			</tr><tr>
+				<td>Derick</td>
+				<td>Mwangi</td>
+				<td>0702933534</td>
+				<td>delinkdesigns@gmail.com</td>
+				<td>30/09/1992</td>
+				<td><span class="label label-warning">Update</span></td>
+				<td><span class="label label-danger">Delete</span></td>
+			</tr>
+		</tbody>
+	</table>
+
 </div>
+
