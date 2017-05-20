@@ -15,7 +15,7 @@ export class AppComponent {
 		this.addPatients = true;
 		this.viewPatients = false;
 	}
-	viewP(){
+	allPatients(){
 		this.addPatients = false;
 		this.viewPatients = true;
 	}
