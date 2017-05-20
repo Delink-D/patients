@@ -1,41 +1,56 @@
+<!-- begining of the center div -->
 <div class="group" id="main-container">
 	<div class="main-title">
 		<h3>Manage Patients App</h3>
 	</div>
 	<hr>
+	<!-- buttons to navigate between the form and view patients -->
 	<div class="nav-btns">
-		<p class="navBtn" (click) = "newPatient()">Add Patient</p>
-		<p class="navBtn" (click) = "allPatients()">View Patients</p>
+		<p class="navBtn mypointer" (click) = "newPatient()">Add Patient</p>
+		<p class="navBtn mypointer" (click) = "allPatients()">View Patients</p>
 	</div>
 	<div class="clearfix"></div>
 	<hr>
 
+	<!-- form for saving new patient -->
 	<form class="add-patients" *ngIf = "addPatients">
 		<div class="form-group col-lg-6 col-md-6">
 			<label for="fname">First Name</label>
-			<input type="text" class="form-control" id="fname" name="fname" placeholder="First Name">
+			<input type="text" class="form-control" id="fname" #fname placeholder="First Name">
 		</div>
 		<div class="form-group col-lg-6 col-md-6">
 			<label for="lname">Last Name</label>
-			<input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name">
+			<input type="text" class="form-control" id="lname" #lname placeholder="Last Name">
 		</div>
 		<div class="form-group col-lg-6 col-md-6">
 			<label for="phone">Phone Number</label>
-			<input type="number" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+			<input type="number" class="form-control" id="phone" #phone placeholder="Phone Number">
 		</div>
 		<div class="form-group col-lg-6 col-md-6">
 			<label for="email">Email</label>
-			<input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+			<input type="email" class="form-control" id="email" #email placeholder="Email Address">
 		</div>
 		<div class="form-group col-lg-6 col-md-6">
 			<label for="email">Date of Birth</label>
-			<input type="date" class="form-control" id="dob" name="dob">
+			<input type="date" class="form-control" id="dob" #dob>
 		</div>
 		<div class="form-group col-lg-6 col-md-6">
-			<input type="submit" class="btn btn-primary pull-right mybtn" value="Add Patient">
+			<input type="submit" (click) = "addPatient(fname.value, lname.value, phone.value, email.value, dob.value); fname.value=''; lname.value=''; phone.value=''; email.value=''; dob.value=''" class="btn btn-primary pull-right mybtn" value="Add Patient">
 		</div>
-	</form>
+		<div class="clearfix"></div>
 
+		<!-- alert success message when saved -->
+		<div class="alert alert-success" role="alert" *ngIf = "saved">
+			<strong>Well done!</strong> You successfully saved a new patient.
+		</div>
+		<!-- alert when error occurs while saving -->
+		<div class="alert alert-danger" role="alert" *ngIf = "ntSAved">
+			<strong>Oops Error!</strong> Something happened while trying save.
+		</div>
+
+	</form> <!-- /form -->
+
+	<!-- a table to display all the patients -->
 	<table class="table table-striped" id="view-patients" *ngIf = "viewPatients">
 		<thead>
 			<tr>
@@ -49,33 +64,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>Derick</td>
-				<td>Mwangi</td>
-				<td>0702933534</td>
-				<td>delinkdesigns@gmail.com</td>
-				<td>30/09/1992</td>
-				<td><span class="label label-warning">Update</span></td>
-				<td><span class="label label-danger">Delete</span></td>
-			</tr><tr>
-				<td>Derick</td>
-				<td>Mwangi</td>
-				<td>0702933534</td>
-				<td>delinkdesigns@gmail.com</td>
-				<td>30/09/1992</td>
-				<td><span class="label label-warning">Update</span></td>
-				<td><span class="label label-danger">Delete</span></td>
-			</tr><tr>
-				<td>Derick</td>
-				<td>Mwangi</td>
-				<td>0702933534</td>
-				<td>delinkdesigns@gmail.com</td>
-				<td>30/09/1992</td>
-				<td><span class="label label-warning">Update</span></td>
-				<td><span class="label label-danger">Delete</span></td>
+			<tr *ngFor = "let patient of patients">
+				<td>{{patient.fname}}</td>
+				<td>{{patient.lname}}</td>
+				<td>{{patient.phone}}</td>
+				<td>{{patient.email}}</td>
+				<td>{{patient.dob}}</td>
+				<td><span class="label label-warning mypointer">Update {{i}}</span></td>
+				<td><span class="label label-danger mypointer">Delete {{i}}</span></td>
 			</tr>
 		</tbody>
-	</table>
+	</table> <!-- /table -->
 
 </div>
 
