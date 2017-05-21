@@ -43,4 +43,18 @@ export class AppComponent {
 			this.ntSAved = true;
 		}
 	}
+
+	// function to edit an existing patient
+	editPatients: PatientModule = null;
+
+	editPatient(patient: PatientModule){
+		this.editPatients = patient;
+		// log
+		console.log(this.editPatients);
+	}
+
+	// finish editing function
+	finishedEditing(){
+		this.editPatients = null;
+	}
 }
