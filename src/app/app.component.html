@@ -35,6 +35,7 @@
 			<input type="date" class="form-control" id="dob" #dob>
 		</div>
 		<div class="form-group col-lg-6 col-md-6">
+			<!-- on click pass all the values to addPatient() -->
 			<input type="submit" (click) = "addPatient(fname.value, lname.value, phone.value, email.value, dob.value); fname.value=''; lname.value=''; phone.value=''; email.value=''; dob.value=''" class="btn btn-primary pull-right mybtn" value="Add Patient">
 		</div>
 		<div class="clearfix"></div>
@@ -71,14 +72,15 @@
 				<td>{{patient.email}}</td>
 				<td>{{patient.dob}}</td>
 				<td><span (click) = "editPatient(patient)" class="label label-warning mypointer" data-toggle="modal" data-target="#mymodal">Update {{i}}</span></td>
-				<td><span class="label label-danger mypointer">Delete {{i}}</span></td>
+				<td><span (click) = "deletePatient(patient)" class="label label-danger mypointer">Delete {{i}}</span></td>
 			</tr>
 		</tbody>
 	</table> <!-- /table -->
 
-</div>
+</div> <!-- /main-container -->
 
-<div class="modal fade" id="mymodal" *ngIf = "editPatients">
+<!-- begining of modal for edit form -->
+<div class="modal fade" id="mymodal" *ngIf = "editPatients"> <!-- display if edit btn is clicked -->
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">

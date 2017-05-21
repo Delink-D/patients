@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import  { PatientModule } from './patient/patient.module';
 
-
-
 @Component({
   selector: 'myapp',
   templateUrl: 
@@ -18,7 +16,7 @@ export class AppComponent {
 
 	patients: PatientModule[] = [
 		// example of patient details
-		new PatientModule("Delink", "Mwangi", "098876236", "delinkdesigns@gmail.com", "23-12-1999")
+		new PatientModule("Delink", "Mwangi", "078876236", "delinkdesigns@gmail.com", "09-09-1999")
 	]
 
 	// a function to show add patients form
@@ -37,6 +35,7 @@ export class AppComponent {
 		var patiendAdd: PatientModule = new PatientModule(fname, lname, phone, email, dob);
 
 		if (patiendAdd) { // check if save is completed
+			// add record to the array
 			this.patients.push(patiendAdd);
 			this.saved = true;
 		}else{
@@ -46,15 +45,22 @@ export class AppComponent {
 
 	// function to edit an existing patient
 	editPatients: PatientModule = null;
-
 	editPatient(patient: PatientModule){
 		this.editPatients = patient;
-		// log
-		console.log(this.editPatients);
 	}
 
 	// finish editing function
 	finishedEditing(){
 		this.editPatients = null;
+	}
+
+	// function to remove a record
+	deletePatient(patient: PatientModule){
+		var index = this.patients.indexOf(patient);
+		// check if the confirmation if true
+		if (confirm("Are you sure you want to delete this record?")) {
+			// remove record from the array
+			this.patients.splice(index, 1);
+		}
 	}
 }
