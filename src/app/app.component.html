@@ -13,30 +13,30 @@
 	<hr>
 
 	<!-- form for saving new patient -->
-	<form class="add-patients" *ngIf = "addPatients">
+	<form class="add-patients" *ngIf = "addPatients" name="form" id="inputForm" action="#" method="post">
 		<div class="form-group col-lg-6 col-md-6">
 			<label for="fname">First Name</label>
-			<input type="text" class="form-control" id="fname" #fname placeholder="First Name">
+			<input type="text" class="form-control" name="fname" id="fname" #fname placeholder="First Name">
 		</div>
 		<div class="form-group col-lg-6 col-md-6">
 			<label for="lname">Last Name</label>
-			<input type="text" class="form-control" id="lname" #lname placeholder="Last Name">
+			<input type="text" class="form-control" name="lname" id="lname" #lname placeholder="Last Name">
 		</div>
 		<div class="form-group col-lg-6 col-md-6">
 			<label for="phone">Phone Number</label>
-			<input type="number" class="form-control" id="phone" #phone placeholder="Phone Number">
+			<input type="number" class="form-control" name="phone" id="phone" #phone placeholder="Phone Number">
 		</div>
 		<div class="form-group col-lg-6 col-md-6">
 			<label for="email">Email</label>
-			<input type="email" class="form-control" id="email" #email placeholder="Email Address">
+			<input type="email" class="form-control" name="email" id="email" #email placeholder="Email Address">
 		</div>
 		<div class="form-group col-lg-6 col-md-6">
 			<label for="email">Date of Birth</label>
-			<input type="date" class="form-control" id="dob" #dob>
+			<input type="date" class="form-control" name="dob" id="dob" #dob>
 		</div>
 		<div class="form-group col-lg-6 col-md-6">
 			<!-- on click pass all the values to addPatient() -->
-			<input type="submit" (click) = "addPatient(fname.value, lname.value, phone.value, email.value, dob.value); fname.value=''; lname.value=''; phone.value=''; email.value=''; dob.value=''" class="btn btn-primary pull-right mybtn" value="Add Patient">
+			<input type="submit" (click) = "addPatient(fname.value, lname.value, phone.value, email.value, dob.value); fname.value=''; lname.value=''; phone.value=''; email.value=''; dob.value=''"  class="btn btn-primary pull-right mybtn" value="Add Patient">
 		</div>
 		<div class="clearfix"></div>
 
@@ -51,7 +51,7 @@
 
 	</form> <!-- /form -->
 
-	<!-- a table to display all the patients -->
+	<!-- a table to display all the patients-->
 	<table class="table table-striped" id="view-patients" *ngIf = "viewPatients">
 		<thead>
 			<tr>
@@ -76,7 +76,6 @@
 			</tr>
 		</tbody>
 	</table> <!-- /table -->
-
 </div> <!-- /main-container -->
 
 <!-- begining of modal for edit form -->

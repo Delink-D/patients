@@ -3,8 +3,7 @@ import  { PatientModule } from './patient/patient.module';
 
 @Component({
   selector: 'myapp',
-  templateUrl: 
-  	'./app.component.html',
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
@@ -16,7 +15,7 @@ export class AppComponent {
 
 	patients: PatientModule[] = [
 		// example of patient details
-		new PatientModule("Delink", "Mwangi", "078876236", "delinkdesigns@gmail.com", "09-09-1999")
+		new PatientModule("Delink", "Mwangi", "078876236", "delinkdesigns@gmail.com", "1999-09-09")
 	]
 
 	// a function to show add patients form
